@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <toast></toast>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">User Management</a>
+    </nav>
+    <div class="container pt-4">
+      <div class="row">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Toast from "./components/Toast";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Toast
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #eee;
+  height: 100vh;
+}
+.btn-round, .btn-round:hover {
+  border-radius: 25px;
+  border: 1px solid;
 }
 </style>
