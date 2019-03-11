@@ -1,10 +1,6 @@
 <template>
   <div class="col-md-12">
-    <h4 class="mb-3">
-      New User
-      <button class="btn btn-light btn-round btn-sm float-right" @click="cancel"><i class="fa fa-caret-left"></i> Back</button>
-    </h4>
-    <user-form @submit="onSubmit"></user-form>
+    <user-form @submit="onSubmit" @cancel="onCancel"></user-form>
   </div>
 </template>
 
@@ -16,9 +12,6 @@ export default {
     UserForm
   },
   methods: {
-    cancel() {
-      this.$router.replace({ name: "user.index" });
-    },
     onSubmit(user) {
       // call store api here
       // else
@@ -26,6 +19,9 @@ export default {
 
       this.$store.commit("create", user);
       this.$store.commit("toast", "User has been created.");
+      this.$router.replace({ name: "user.index" });
+    },
+    onCancel() {
       this.$router.replace({ name: "user.index" });
     }
   }

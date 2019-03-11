@@ -1,21 +1,27 @@
 <template>
   <div class="col-md-12">
-    <div class="row">
-      <div class="col-lg-12">
-        <button class="btn btn-light btn-round btn-sm float-right mb-3" @click="create"><i class="fa fa-plus"></i> Add</button>
-      </div>
-    </div>
-    <user-list :users="users" @edit="edit"></user-list>
+    <h4 class="mb-4">
+      USER MANAGEMENT
+      <button class="btn btn-info btn-round float-md-right" @click="create">ADD USER <i class="fa fa-plus ml-1"></i></button>
+    </h4>
+    <user-list :users="users" @edit="edit" @remove="onRemove"></user-list>
+    <modal-confirm text="Are you sure you want to delete this user?" @confirm="remove" @close="confirm = false" v-if="confirm"></modal-confirm>
   </div>
 </template>
 
 <script>
 import UserList from "../../components/user/UserList";
+import ModalConfirm from "../../components/modal/ModalConfirm";
 
 export default {
   components: {
-    UserList
+    UserList,
+    ModalConfirm
   },
+  data: () => ({
+    confirm: false,
+    toRemove: null
+  }),
   computed: {
     users() {
       return this.$store.state.users;
@@ -27,6 +33,16 @@ export default {
     },
     edit(user) {
       this.$router.push({ name: "user.edit", params: { id: user.id, user } });
+    },
+    onRemove(id) {
+      this.toRemove = id;
+      this.confirm = true;
+    },
+    remove() {
+      this.$store.commit("remove", this.toRemove);
+      this.toRemove = null;
+      this.confirm = false;
+      this.$store.commit("toast", "User has been removed.");
     }
   }
 };

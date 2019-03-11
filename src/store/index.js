@@ -23,7 +23,6 @@ const mutations = {
   remove(state, id) {
     let userIndex = state.users.findIndex(user => user.id === id);
     state.users.splice(userIndex, 1);
-    console.log(userIndex, state.users);
   },
   toast(state, message) {
     state.toast.message = message;

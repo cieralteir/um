@@ -1,9 +1,11 @@
 <template>
-  <div class="toast" v-show="toast.show">
+  <div class="toastr" v-show="toast.show">
     <div
       :class="`alert alert-${toast.type === 'success' ? 'primary' : 'danger'}`"
       role="alert"
-    >{{ toast.message }}</div>
+    >
+    <i :class="`fa fa-${toast.type === 'success' ? 'check' : 'times'}`"></i>
+    {{ toast.message }}</div>
   </div>
 </template>
 
@@ -18,10 +20,10 @@ export default {
 </script>
 
 <style scoped>
-.toast {
+.toastr {
   position: absolute;
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   max-width: 250px;
   z-index: 1;

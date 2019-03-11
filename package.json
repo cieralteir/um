@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "um",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,11 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "vee-validate": "^2.1.7",
     "vue": "^2.6.6",
+    "vue-flatpickr-component": "^8.1.1",
     "vue-router": "^3.0.2",
     "vuex": "^3.1.0"
   },

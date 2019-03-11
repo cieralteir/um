@@ -1,0 +1,9 @@
+.btn {
+ font-size: 14px;
+}
+.btn-link {
+ color: #795548;
+}
+.btn-link:hover {
+ color: #222;
+}

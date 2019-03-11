@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <toast></toast>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">User Management</a>
-    </nav>
+    </nav> -->
     <div class="container pt-4">
       <div class="row">
         <router-view></router-view>
@@ -25,11 +25,11 @@ export default {
 
 <style>
 #app {
-  background: #eee;
-  height: 100vh;
+  font-family: 'Raleway', sans-serif;
 }
-.btn-round, .btn-round:hover {
-  border-radius: 25px;
-  border: 1px solid;
+.btn-round {
+  border-radius: 25px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 </style>
